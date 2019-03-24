@@ -1,0 +1,20 @@
+resolver: lts-11.20
+
+packages:
+- .
+
+extra-deps:
+- git: https://github.com/nomeata/ghc-heap-view
+  commit: 4f5fff4b3fbc41e2555612fe95b692f6821b43ab
+- git: https://github.com/haskell/parallel
+  commit: 7ca8d1a8c8fc761dc6e85be0bfd7f50a5d526952
+
+flags:
+  ghc-heap-view:
+    ghc_8_0: false
+    ghc_8_2: true
+
+ghc-options:
+  "$everything": -threaded -rtsopts -O2 "-with-rtsopts=-N"
+
+rebuild-ghc-options: true
